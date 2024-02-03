@@ -448,7 +448,21 @@ class CaptainController extends Controller
 
     public function createNewCar(Request $request) {
         try {
-            CarsCaption::where('captain_id',$request->captain_id)->update([
+            $captainCar = CarsCaption::where('captain_id', $request->captain_id)->first();
+            if (!$captainCar) {
+                $captainCar = CarsCaption::create([
+                    'captain_id' => $request->captain_id,
+                    'car_make_id' => $request->car_make_id,
+                    'car_model_id' => $request->car_model_id,
+                    'car_type_id' => $request->car_type_id,
+                    'category_car_id' => $request->category_car_id,
+                    'number_car' => $request->number_car,
+                    'color_car' => $request->color_car,
+                    'year_car' => $request->year_car,
+                ]);
+                return redirect()->route('CallCenterCaptains.index')->with('success', 'Captain car created successfully');
+            }
+            $captainCar->update([
                 'car_make_id' => $request->car_makeId,
                 'car_model_id' => $request->car_modelId,
                 'car_type_id' => $request->car_type_id,
@@ -457,13 +471,11 @@ class CaptainController extends Controller
                 'color_car' => $request->color_car,
                 'year_car' => $request->year_car,
             ]);
-            return redirect()->route('CallCenterCaptains.index')->with('success', 'captain car created successfully');
+            return redirect()->route('CallCenterCaptains.index')->with('success', 'Captain car updated successfully');
         } catch (\Exception $e) {
-            return redirect()->route('CallCenterCaptains.index')->with('error', 'An error occurred while creating the captain car');
+            return redirect()->route('CallCenterCaptains.index')->with('error', 'An error occurred while creating/updating the captain car');
         }
     }
-
-    
 
     public function newCar($captainId) {
         $captain = Captain::find($captainId);
