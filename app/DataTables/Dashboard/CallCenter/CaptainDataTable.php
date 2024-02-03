@@ -77,7 +77,7 @@ class CaptainDataTable extends BaseDataTable {
             })
             ->addColumn('tricycle', function (Captain $captain) {
                 $hasTricycle = DB::table('captain_tricycles')->where('captain_id', $captain->id)->exists();
-                return $hasTricycle ? '<i class="fa fa-check-circle fa-lg text-success"></i> have tricycle' : '<i class="fa fa-times-circle fa-lg text-danger"></i> not have scooter';
+                return $hasTricycle ? '<i class="fa fa-check-circle fa-lg text-success"></i> have tricycle' : '<i class="fa fa-times-circle fa-lg text-danger"></i> not have tricycle';
             })
             ->rawColumns(['action', 'created_at', 'updated_at','status', 'country_id', 'name','callcenter', 'images', 'car', 'scooter', 'tricycle']);
     }
