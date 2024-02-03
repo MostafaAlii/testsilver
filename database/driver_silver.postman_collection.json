@@ -1,0 +1,2744 @@
+{
+	"info": {
+		"_postman_id": "3c291fe7-c5ac-421a-8b0c-a8e3ff49216c",
+		"name": "driver_silver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13879009"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "koko",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "koko@koko.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01013644233",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male,female",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "65",
+											"description": "exists:countries,id",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/register",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "mostafahefzy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/user/login",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_phone",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01013644238",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "01013644238",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/login_phone",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"login_phone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/v1/user/user-profile",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"user-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/refresh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Mohmaed",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mohmaed@mohmaed.com",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "اكتوبر",
+											"description": "العنوان",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/edit-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"edit-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editImages",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-06-24 at 17.41.29.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/editImages",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"editImages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change-password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "ahmededitasdsadasddsa",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restPassword",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "212121asdsaedasd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/restPassword",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"restPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkPhone",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/checkPhone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"checkPhone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "getNotifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/v1/user/getNotifications",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"getNotifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "userSubscription",
+					"item": [
+						{
+							"name": "userSubscription",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "type",
+											"value": "subscription",
+											"description": "in:package,subscription,offer",
+											"type": "text"
+										},
+										{
+											"key": "package_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subscription_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "offer_id",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/userSubscription",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"userSubscription"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Captions",
+					"item": [
+						{
+							"name": "Captions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "latitude",
+											"value": "29.996945",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "31.140647",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/captionActivity",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"captionActivity"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "rate",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/rate/getRate",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"rate",
+										"getRate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createRate",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50YWctc29mdC5jb20vYXBpL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2OTUxMzMwNzQsImV4cCI6MTY5NTEzNjY3NCwibmJmIjoxNjk1MTMzMDc0LCJqdGkiOiIxWHhObWFXYW1jSDBMRjVnIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.iFn1QnTOBEef9LsDkj9AttZq51u6W7lOOm_mRAJ6x20",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "captain_id",
+											"value": "1",
+											"description": "exists:captains,id",
+											"type": "text"
+										},
+										{
+											"key": "rate",
+											"value": "5",
+											"description": "between:1,5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "ساثق محترف",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "order_code",
+											"value": "order_28258",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/user/rate/createRate",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"rate",
+										"createRate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "all orders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/order/allOrder",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"order",
+										"allOrder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "latestOrder",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/order/lastOrder",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"order",
+										"lastOrder"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "fcm",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "key=AAAA5dxbfSs:APA91bH6P3jOhcvNzYL9u-9n9J8Zm_PhOmSDhJu-IfPiH7ofh7IWf8nRl-xNd_TMlIB_0jDuGu4swGYk3MYxZ2B_NXGbO8NPZJcL0d4UtDRqHnDGIcoSqDlkGYp8RPazQdnLhZWV3T4u\t",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"to\" : \"/topics/all\",\r\n    \"notification\" : {\r\n        \"body\" : \"قبض\",\r\n        \"title\" : \"شكرا على القبض وكل سنه وانت طيب يا بااشا\" \r\n    }\r\n    \r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "drivers",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "AbdoAmer",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "abdoamer0677@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01013644238",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male,female",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "65",
+											"description": "exists:countries,id",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/register",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "mohmaed@mohmaed.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/login",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbiIsImlhdCI6MTcwNDc4OTY0MiwiZXhwIjoxNzA0NzkzMjQyLCJuYmYiOjE3MDQ3ODk2NDIsImp0aSI6IjJTTFVWUkEyZTZnSWRsSGUiLCJzdWIiOiIxMCIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.WsVQkaI1wOh7JUMlKOEYeqDj-E6i6BU3grxSFgjJbMU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/logout",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_phone",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/login_phone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"login_phone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "drivers-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbiIsImlhdCI6MTcwNDgwNTY3OCwiZXhwIjoxNzA0ODA5Mjc4LCJuYmYiOjE3MDQ4MDU2NzgsImp0aSI6Ijd0SjJ0YjdWTXZHdjlsMnAiLCJzdWIiOiIxMCIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ._rxpJvGSnH4RYyvgdLAxJy27rm794EI4aT2HHNPoy4Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/drivers-profile?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"drivers-profile"
+									],
+									"query": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/refresh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change-password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbiIsImlhdCI6MTcwNDcyNDE2NSwiZXhwIjoxNzA0NzI3NzY1LCJuYmYiOjE3MDQ3MjQxNjUsImp0aSI6IkZoTzFSRzZCeGVBZUZ5bW4iLCJzdWIiOiIxMCIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.oeXj_fFgSGkNLg1z8gAaEXlEQwwvEXqB5mcbHFpzU0E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "1234567899",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/change-password",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restPassword",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "qqqqqqqqqqqqq",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://silver.tripu.net/api/v1/driver/restPassword",
+									"protocol": "https",
+									"host": [
+										"silver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"restPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkPhone",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/checkPhone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"checkPhone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "getNotifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/getNotifications",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"getNotifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "changeStatus",
+					"item": [
+						{
+							"name": "updateStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "longitude",
+											"value": "31.139406",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "29.994434",
+											"type": "text"
+										},
+										{
+											"key": "status_captain",
+											"value": "active",
+											"description": "in:active,inactive",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/updateStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"updateStatus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkStatusCaptain",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/checkStatusCaptain",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"checkStatusCaptain"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "StatusCaptain",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/StatusCaptain",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"StatusCaptain"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "rate",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/rate/getRate",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"rate",
+										"getRate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createRate",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"description": "exists:users,id",
+											"type": "text"
+										},
+										{
+											"key": "rate",
+											"value": "2",
+											"description": "between:1,5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "عميل محترم",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "order_code",
+											"value": "order_146292",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/driver/rate/createRate",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"rate",
+										"createRate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "uploadProfilePhoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5Mzc5MjYxNiwiZXhwIjoxNjkzNzk2MjE2LCJuYmYiOjE2OTM3OTI2MTYsImp0aSI6ImJvN2hkaXgyVkNob1BieTgiLCJzdWIiOiI5IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.arQAoLIJa7toLhktWuKMfwMkhXl1wfDzSJ3toQKP6HI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo_id_before",
+											"description": "// صورة الهوية الشخصية امام",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/finish.png"
+										},
+										{
+											"key": "photo_id_behind",
+											"description": "// صورة الهوية الشخصية خلف",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/all.png"
+										},
+										{
+											"key": "photo_driving_before",
+											"description": "// صورة رخصة القيادة امام",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/event_1.png"
+										},
+										{
+											"key": "photo_driving_behind",
+											"description": "// صورة رخصة القيادة خلف",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/screencapture-beta-openai-2023-01-14-14_20_46.png"
+										},
+										{
+											"key": "photo_criminal",
+											"description": "// صورة الفيش الجنائى",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/old.png"
+										},
+										{
+											"key": "photo_personal",
+											"description": "// الصورة الشخصية",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/new.png"
+										},
+										{
+											"key": "number_personal",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/profile/uploadProfilePhoto",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"uploadProfilePhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkPhotoStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5Mzc5MjYxNiwiZXhwIjoxNjkzNzk2MjE2LCJuYmYiOjE2OTM3OTI2MTYsImp0aSI6ImJvN2hkaXgyVkNob1BieTgiLCJzdWIiOiI5IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.arQAoLIJa7toLhktWuKMfwMkhXl1wfDzSJ3toQKP6HI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "type",
+											"value": "personal",
+											"description": "in:personal,car",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/profile/checkPhotoStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"checkPhotoStatus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UploadCarPhoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5Mzc5MzE0OCwiZXhwIjoxNjkzNzk2NzQ4LCJuYmYiOjE2OTM3OTMxNDgsImp0aSI6ImVyWEhiNWZjNmJRSVdjZUUiLCJzdWIiOiIxIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.xEhKH2LZdniRCQH_GyOjVnVWAL-EtQaHWTqVjdCJlzM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "car_make_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "car_model_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "car_type_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "years",
+											"value": "2023",
+											"type": "text"
+										},
+										{
+											"key": "number_car",
+											"value": "1231234qqqq",
+											"type": "text"
+										},
+										{
+											"key": "color_car",
+											"value": "DStewredsdsf",
+											"type": "text"
+										},
+										{
+											"key": "car_photo_before",
+											"description": "صورة السياره امام",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/blog_tags.png"
+										},
+										{
+											"key": "car_photo_behind",
+											"description": "صورة السياره خلف",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/product_with_category.png"
+										},
+										{
+											"key": "car_photo_right",
+											"description": "صورة السياره الجانب الايمن",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/product_with_search.png"
+										},
+										{
+											"key": "car_photo_north",
+											"description": "صورة السياره الجانب اليسار",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/product_with_tags.png"
+										},
+										{
+											"key": "car_photo_inside",
+											"description": "صورة السياره بالداخل",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/products.png"
+										},
+										{
+											"key": "car_license_before",
+											"description": "صوره الرخصة امام",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/blog_deatails.png"
+										},
+										{
+											"key": "car_license_behind",
+											"description": "صوره الرخصة خلف",
+											"type": "file",
+											"src": "/C:/Users/mosta/Downloads/11.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/profile/uploadCarPhoto",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"uploadCarPhoto"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "setting",
+			"item": [
+				{
+					"name": "country",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/countries",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/country/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"country",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carYear",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carYear",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carYear"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkYears",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "years",
+											"value": "2025",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/checkYears",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkYears"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CarMake",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carMake",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carMake"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carMake/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carMake",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tripType",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/tripType",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tripType"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/tripType/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tripType",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carType",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carType",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carType"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carType/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carType",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "categoryCar",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/categoryCar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categoryCar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/categoryCar/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categoryCar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carModel",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carModel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carModel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carModel/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carModel",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Package",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/package",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"package"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/package/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"package",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "offer",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/offer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"offer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/offer/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"offer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "subscription",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/subscription",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/subscription/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscription",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sos",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/sos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"sos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/sos/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"sos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "companySupport",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/v1/companySupport",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companySupport"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "discounts",
+					"item": [
+						{
+							"name": "checkCode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "a7medFixed",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/checkCodeDiscount",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkCodeDiscount"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "mainSetting",
+					"item": [
+						{
+							"name": "mainSetting",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/v1/mainSetting",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"mainSetting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "accounts_kilometer",
+					"item": [
+						{
+							"name": "accounts_kilometer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "kilometer",
+											"value": "2.849",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/accounts_kilometer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"accounts_kilometer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CMS",
+					"item": [
+						{
+							"name": "Services",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/cms/service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cms",
+												"service"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "captain_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "trip_type_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "total_price",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "payments",
+									"value": "cash",
+									"description": "cash , masterCard , wallet",
+									"type": "text"
+								},
+								{
+									"key": "lat_user",
+									"value": "29.996945",
+									"description": "مكان الي طلب منه العميل",
+									"type": "text"
+								},
+								{
+									"key": "long_user",
+									"value": "29.996945",
+									"description": "مكان الي طلب منه العميل",
+									"type": "text"
+								},
+								{
+									"key": "lat_going",
+									"value": "29.996945",
+									"description": "المكان الي رايح العميل",
+									"type": "text"
+								},
+								{
+									"key": "long_going",
+									"value": "29.996945",
+									"description": "المكان الي رايح العميل",
+									"type": "text"
+								},
+								{
+									"key": "address_now",
+									"value": "asdasdsad",
+									"type": "text"
+								},
+								{
+									"key": "address_going",
+									"value": "asdasdadsadssad",
+									"type": "text"
+								},
+								{
+									"key": "time_trips",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "lat_caption",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "long_caption",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/createOrder",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatus",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "order_146292",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "done",
+									"description": "done,waiting,pending,cancel,accepted",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/updateStatus",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/getOrder",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"getOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "takingOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "lat_caption",
+									"value": "29.996945",
+									"type": "text"
+								},
+								{
+									"key": "long_caption",
+									"value": "29.996945",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/takingOrder",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"takingOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "takingCompleted",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "lat_caption",
+									"value": "29.996945",
+									"type": "text"
+								},
+								{
+									"key": "long_caption",
+									"value": "29.996945",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/takingCompleted",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"takingCompleted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "canselOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_code",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "cansel",
+									"value": "",
+									"description": "سبب الكنسله",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/order/canselOrder",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"canselOrder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "live",
+			"value": "https://silver.tag-soft.com",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token_user",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50YWctc29mdC5jb20vYXBpL3YxL3VzZXIvbG9naW4iLCJpYXQiOjE2OTUxMjM0MzcsImV4cCI6MTY5NTEyNzAzNywibmJmIjoxNjk1MTIzNDM3LCJqdGkiOiJodWVhWjRQVjJzTnozaDlXIiwic3ViIjoiNCIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cILfHn3dEkCHjGCqISCETw3lc0MqcSV8spGSHNbg7Xg"
+		}
+	]
+}
